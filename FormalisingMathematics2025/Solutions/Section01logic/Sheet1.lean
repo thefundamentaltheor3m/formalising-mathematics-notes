@@ -98,7 +98,8 @@ example (h : P → Q) (hP : P) : Q :=
 -- The `apply` tactic always needs a hypothesis of the form `P → Q`. But instead of applying
 -- it to a hypothesis `h : P` (which changes the hypothesis to a proof of `Q`), you can instead
 -- just use a bare `apply h` and it will apply it to the *goal*, changing it from `Q` to `P`.
--- Here we are "arguing backwards" -- if we know that P implies Q, then to prove Q it suffices to prove P.
+-- Here we are "arguing backwards" -- if we know that P implies Q, then to prove Q it suffices to
+-- prove P.
 
 -- Assume `P → Q` and `P` is true. Deduce `Q`.
 example (h : P → Q) (hP : P) : Q :=

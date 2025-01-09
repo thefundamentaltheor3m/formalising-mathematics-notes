@@ -18,7 +18,7 @@ You'll need to know about the tactics from the previous sheets,
 and also the following tactics
 
 * `left` and `right`
-* `cases'` (new functionality)
+* `cases` (new functionality)
 
 -/
 
@@ -36,20 +36,25 @@ example : Q → P ∨ Q := by
   right
   exact hQ
 
-example : P ∨ Q → (P → R) → (Q → R) → R :=
-  by
+example : P ∨ Q → (P → R) → (Q → R) → R := by
   intro hPoQ hPR hQR
-  cases' hPoQ with hP hQ
-  · apply hPR
-    exact hP
-  · exact hQR hQ
+  cases hPoQ with
+  | inl hP =>
+      apply hPR
+      exact hP
+  | inr hQ =>
+      exact hQR hQ
 
 -- symmetry of `or`
 example : P ∨ Q → Q ∨ P := by
   intro hPoQ
-  cases' hPoQ with hP hQ
-  · right; assumption
-  · left; assumption
+  cases hPoQ with
+  | inl hP =>
+      right
+      assumption
+  | inr hQ =>
+      left
+      assumption
 
 -- associativity of `or`
 example : (P ∨ Q) ∨ R ↔ P ∨ Q ∨ R := by
@@ -63,20 +68,18 @@ example : (P ∨ Q) ∨ R ↔ P ∨ Q ∨ R := by
     · left; right; exact hQ
     · right; exact hR
 
-example : (P → R) → (Q → S) → P ∨ Q → R ∨ S :=
-  by
+example : (P → R) → (Q → S) → P ∨ Q → R ∨ S := by
   rintro hPR hQS (hP | hQ)
   · left; apply hPR; exact hP
   · right; exact hQS hQ
 
 example : (P → Q) → P ∨ R → Q ∨ R := by
   intro hPQ h
-  cases' h with hP hR
-  · left; apply hPQ; exact hP
-  · right; exact hR
+  cases h with
+  | inl hP => left; apply hPQ; exact hP
+  | inr hR => right; exact hR
 
-example : (P ↔ R) → (Q ↔ S) → (P ∨ Q ↔ R ∨ S) :=
-  by
+example : (P ↔ R) → (Q ↔ S) → (P ∨ Q ↔ R ∨ S) := by
   intro h1 h2
   rw [h1, h2]
 

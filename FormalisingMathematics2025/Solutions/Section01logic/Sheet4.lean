@@ -17,7 +17,7 @@ We learn about how to manipulate `P ∧ Q` in Lean.
 You'll need to know about the tactics from the previous sheets,
 and also the following tactics:
 
-* `cases'`
+* `cases` or `rcases`
 * `constructor`
 
 -/
@@ -27,7 +27,12 @@ variable (P Q R : Prop)
 
 example : P ∧ Q → P := by
   intro hPaQ
-  cases' hPaQ with hP hQ
+  cases hPaQ with
+  | intro hP hQ => exact hP
+
+example : P ∧ Q → P := by
+  intro hPaQ
+  rcases hPaQ with ⟨hP, hQ⟩
   exact hP
 
 example : P ∧ Q → Q := by
@@ -54,7 +59,7 @@ example : P → P ∧ True := by
   intro hP
   constructor
   · exact hP
-  · triv
+  · trivial
 
 example : False → P ∧ False := by
   intro h

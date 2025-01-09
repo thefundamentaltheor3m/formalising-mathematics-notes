@@ -18,7 +18,7 @@ tactics, plus the following two new ones. Check out their explanations
 in the course book. Or just try them out and hover over them to see
 if you can understand what's going on.
 
-* `triv`
+* `trivial`
 * `exfalso`
 
 -/
@@ -27,7 +27,8 @@ if you can understand what's going on.
 -- Throughout this sheet, `P`, `Q` and `R` will denote propositions.
 variable (P Q R : Prop)
 
-example : True := by triv
+example : True := by
+  trivial
 
 example : True → True := by
   intro h
@@ -35,7 +36,7 @@ example : True → True := by
 
 example : False → True := by
   intro h
-  triv
+  trivial
 
 example : False → False := by
   intro h
@@ -44,15 +45,14 @@ example : False → False := by
 example : (True → False) → False := by
   intro h
   apply h
-  triv
+  trivial
 
 example : False → P := by
   intro h
   exfalso
   exact h
 
-example : True → False → True → False → True → False :=
-  by
+example : True → False → True → False → True → False := by
   intro h1 h2 h3 h4 h5
   exact h4
 
@@ -71,4 +71,4 @@ example : (True → False) → P := by
   intro h
   exfalso
   apply h
-  triv
+  trivial

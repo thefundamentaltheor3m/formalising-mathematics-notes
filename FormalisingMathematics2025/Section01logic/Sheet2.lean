@@ -18,7 +18,7 @@ tactics, plus the following two new ones. Check out their explanations
 in the course book. Or just try them out and hover over them to see
 if you can understand what's going on.
 
-* `triv`
+* `trivial`
 * `exfalso`
 
 -/
