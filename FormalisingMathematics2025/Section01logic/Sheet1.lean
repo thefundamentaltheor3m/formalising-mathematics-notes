@@ -86,8 +86,7 @@ example (hQ : Q) : P → Q := by
   done
 
 -- Assume `P → Q` and `P` is true. Deduce `Q`.
-example (h : P → Q) (hP : P) : Q :=
-  by
+example (h : P → Q) (hP : P) : Q := by
   -- `hP` says that `P` is true, and `h` says that `P` implies `Q`, so `apply h at hP` will change
   -- `hP` to a proof of `Q`.
   apply h at hP
@@ -102,8 +101,7 @@ example (h : P → Q) (hP : P) : Q :=
 -- prove P.
 
 -- Assume `P → Q` and `P` is true. Deduce `Q`.
-example (h : P → Q) (hP : P) : Q :=
-  by
+example (h : P → Q) (hP : P) : Q := by
   -- `h` says that `P` implies `Q`, so to prove `Q` (our goal) it suffices to prove `P`.
   apply h
   -- Our goal is now `⊢ P`.

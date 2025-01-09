@@ -16,6 +16,8 @@ course happen.
 
 If you're new here, start at the :ref:`introduction <introduction>`.
 
+Here’s a link to the `repository for this course <https://github.com/b-mehta/formalising-mathematics-notes>`_ containing all the code.
+
 Part 1 is a collection of notes on various frequently asked questions that might be helpful for the
 course.
 
