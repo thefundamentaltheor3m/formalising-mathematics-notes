@@ -22,7 +22,7 @@ course.
 Part 2 is a list of many basic tactics including documentation and examples.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    Introduction/introduction
