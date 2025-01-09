@@ -1,0 +1,18 @@
+name = "FormalisingMathematics2025"
+defaultTargets = ["FormalisingMathematics2025"]
+
+[leanOptions]
+pp.unicode.fun = true
+autoImplicit = false
+relaxedAutoImplicit = false
+linter.style.header = true
+linter.style.longLine = true
+linter.style.missingEnd = true
+linter.style.multiGoal = true
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+
+[[lean_lib]]
+name = "FormalisingMathematics2025"
