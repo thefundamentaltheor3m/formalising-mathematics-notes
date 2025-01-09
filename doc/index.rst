@@ -3,12 +3,31 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Example's documentation!
+Formalising Mathematics
 ===================================
+
+A handbook for mathematicians. Written by Bhavik Mehta, for his Formalising Mathematics course,
+adapted from an earlier handbook by Kevin Buzzard. Thanks to Imperial College London for letting the
+course happen.
+
+.. note::
+
+   This document is written for people with some mathematical experience (e.g., people in the final year of an undergraduate mathematics degree). Its aim is to show such people how to formalise mathematics in the Lean theorem prover. We make extensive use of Lean's mathematical library ``mathlib``.
+
+If you're new here, start at the :ref:`introduction <introduction>`.
+
+Part 1 is a collection of notes on various frequently asked questions that might be helpful for the
+course.
+
+Part 2 is a list of many basic tactics including documentation and examples.
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   some-feature.md
-   another-feature.md
+   Introduction/introduction
+   Introduction/install
+
+   Part_1/Part_1
+
+   Part_2/Part_2
