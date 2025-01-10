@@ -6,7 +6,37 @@ cases
 Summary
 -------
 
-``cases`` is a general-purpose tactic for "deconstructing" hypotheses. If ``h`` is a hypothesis which somehow "bundles up" two pieces of information, then ``cases' h with h1 h2`` (note the dash!) will make hypothesis ``h`` vanish and will replace it with the two "components" which made the proof of ``h`` in the first place. Variants are ``cases`` (which does the same thing but with a far more complicated syntax which computer scientists seem to get very excited about) and ``rcases`` (which is "recursive ``cases``" and which has its own page here: :ref:`tac_rcases` )
+``cases`` is a general-purpose tactic for "deconstructing" hypotheses. If ``h`` is a hypothesis which somehow "bundles up" some pieces of information, then ``cases' h with h1 h2`` (note the dash!) will make hypothesis ``h`` vanish and will replace it with the two "components" which made the proof of ``h`` in the first place. Variants are ``cases`` (which does the same thing but with a different syntax) and ``rcases`` (which is "recursive ``cases``" and which has its own page here: :ref:`tac_rcases` )
+
+Here are four ways they might look for deconstructing ``h : P ∧ Q``. In each example, this removes the hypothesis ``h`` and replaces it with two hypotheses ``hP : P`` and ``hQ : Q``.
+
+.. code-block::
+
+   cases' h with hP hQ
+
+   cases h with
+   | intro hP hQ =>
+
+   cases h
+   case intro hP hQ =>
+
+   rcases h with ⟨hP, hQ⟩
+
+And here are four ways they might look for ``h : P ∨ Q``. In each example, this removes the hypothesis ``h`` and replaces it either hypotheses ``hP : P`` or ``hQ : Q``.
+
+.. code-block::
+
+   cases' h with hP hQ
+
+   cases h with
+   | inl hP =>
+   | inr hQ =>
+
+   cases h
+   case inl hP =>
+   case inr hQ =>
+
+   rcases h with hP | hQ
 
 Examples
 --------
