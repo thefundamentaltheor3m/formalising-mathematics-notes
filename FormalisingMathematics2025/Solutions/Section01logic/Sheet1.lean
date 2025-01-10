@@ -86,8 +86,7 @@ example (hQ : Q) : P → Q := by
   done
 
 -- Assume `P → Q` and `P` is true. Deduce `Q`.
-example (h : P → Q) (hP : P) : Q :=
-  by
+example (h : P → Q) (hP : P) : Q := by
   -- `hP` says that `P` is true, and `h` says that `P` implies `Q`, so `apply h at hP` will change
   -- `hP` to a proof of `Q`.
   apply h at hP
@@ -102,8 +101,7 @@ example (h : P → Q) (hP : P) : Q :=
 -- prove P.
 
 -- Assume `P → Q` and `P` is true. Deduce `Q`.
-example (h : P → Q) (hP : P) : Q :=
-  by
+example (h : P → Q) (hP : P) : Q := by
   -- `h` says that `P` implies `Q`, so to prove `Q` (our goal) it suffices to prove `P`.
   apply h
   -- Our goal is now `⊢ P`.
@@ -160,8 +158,7 @@ example : (P → Q) → (Q → R) → P → R := by
 
 -- If `h : P → Q → R` with goal `⊢ R` and you `apply h`, you'll get
 -- two goals! Note that tactics operate on only the first goal.
-example : (P → Q → R) → (P → Q) → P → R :=
-  by
+example : (P → Q → R) → (P → Q) → P → R := by
   intro hPQR hPQ hP
   apply hPQR
   · exact hP
@@ -179,8 +176,7 @@ in this section, where you'll learn some more tactics.
 -/
 variable (S T : Prop)
 
-example : (P → R) → (S → Q) → (R → T) → (Q → R) → S → T :=
-  by
+example : (P → R) → (S → Q) → (R → T) → (Q → R) → S → T := by
   intro hPR hSQ hRT hQR hS
   apply hRT
   clear hPR
@@ -194,8 +190,7 @@ example : (P → Q) → ((P → Q) → P) → Q := by
   apply hPQP
   exact hPQ
 
-example : ((P → Q) → R) → ((Q → R) → P) → ((R → P) → Q) → P :=
-  by
+example : ((P → Q) → R) → ((Q → R) → P) → ((R → P) → Q) → P := by
   intro h1 h2 h3
   apply h2
   intro hQ
@@ -203,8 +198,7 @@ example : ((P → Q) → R) → ((Q → R) → P) → ((R → P) → Q) → P :=
   intro hP
   exact hQ
 
-example : ((Q → P) → P) → (Q → R) → (R → P) → P :=
-  by
+example : ((Q → P) → P) → (Q → R) → (R → P) → P := by
   intro h1 h2 h3
   apply h1
   intro hQ
@@ -220,8 +214,7 @@ example : (((P → Q) → Q) → Q) → P → Q := by
 
 example :
     (((P → Q → Q) → (P → Q) → Q) → R) →
-      ((((P → P) → Q) → P → P → Q) → R) → (((P → P → Q) → (P → P) → Q) → R) → R :=
-  by
+      ((((P → P) → Q) → P → P → Q) → R) → (((P → P → Q) → (P → P) → Q) → R) → R := by
   intro h1 h2 h3
   apply h2
   intro h1 hP h2
@@ -232,5 +225,5 @@ example :
 -- another approach
 example :
     (((P → Q → Q) → (P → Q) → Q) → R) →
-      ((((P → P) → Q) → P → P → Q) → R) → (((P → P → Q) → (P → P) → Q) → R) → R :=
-  by tauto
+      ((((P → P) → Q) → P → P → Q) → R) → (((P → P → Q) → (P → P) → Q) → R) → R := by
+  tauto
