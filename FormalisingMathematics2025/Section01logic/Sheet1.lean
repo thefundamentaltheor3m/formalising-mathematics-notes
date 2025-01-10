@@ -118,7 +118,8 @@ Delete the `sorry`s and replace them with tactic proofs using `intro`,
 -/
 /-- Every proposition implies itself. -/
 example : P → P := by
-  sorry
+  intro h
+  exact h
   done
 
 /-
@@ -137,7 +138,8 @@ So the next level is asking you prove that `P → (Q → P)`.
 
 -/
 example : P → Q → P := by
-  sorry
+  intro hP hQ
+  exact hP
   done
 
 /-- If we know `P`, and we also know `P → Q`, we can deduce `Q`.
