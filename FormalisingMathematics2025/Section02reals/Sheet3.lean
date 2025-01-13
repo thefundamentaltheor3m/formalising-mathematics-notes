@@ -21,6 +21,7 @@ sending n to n^2 + 3:
 
 -/
 
+-- P → Q
 def f : ℕ → ℝ := fun n ↦ n ^ 2 + 3
 
 /-
@@ -99,7 +100,7 @@ theorem tendsTo_add_const {a : ℕ → ℝ} {t : ℝ} (c : ℝ) (h : TendsTo a t
   -- use `cases` to deconstruct an `exists`
   -- hypothesis, and `specialize` to specialize
   -- a `forall` hypothesis to specific values.
-  -- Look up the explanations of these tactics in Part C
+  -- Look up the explanations of these tactics in Part 2
   -- of the course notes.  rw [tendsTo_def] at h ⊢
   sorry
 

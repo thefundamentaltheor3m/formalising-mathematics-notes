@@ -59,12 +59,13 @@ example (x y : ℝ) : |x| < y ↔ -y < x ∧ x < y := by exact?
 example (ε : ℝ) (hε : 0 < ε) : 0 < ε / 2 := by linarith
 
 -- or linarith, or guess the name...
-example (a b x y : ℝ) (h1 : a < x) (h2 : b < y) : a + b < x + y := by exact?
+example (a b x y : ℝ) (h1 : a < x) (h2 : b < y) : a + b < x + y := by linarith
 
 example (ε : ℝ) (hε : 0 < ε) : 0 < ε / 3 := by linarith
 
 -- This is too obscure for the library
-example (a b c d x y : ℝ) (h1 : a + c < x) (h2 : b + d < y) : a + b + c + d < x + y := by linarith
+example (a b c d x y : ℝ) (h1 : a + c < x) (h2 : b + d < y) : a + b + c + d < x + y := by
+  linarith
 
 -- note that add_lt_add doesn't work because
 -- ((a+b)+c)+d and (a+c)+(b+d) are not definitionally equal

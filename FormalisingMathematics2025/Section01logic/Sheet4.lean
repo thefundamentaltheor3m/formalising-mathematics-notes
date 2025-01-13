@@ -26,7 +26,9 @@ and also the following tactics:
 variable (P Q R : Prop)
 
 example : P ∧ Q → P := by
-  sorry
+  intro h
+  cases h with
+  | intro left right => exact left
   done
 
 example : P ∧ Q → Q := by
@@ -38,7 +40,10 @@ example : (P → Q → R) → P ∧ Q → R := by
   done
 
 example : P → Q → P ∧ Q := by
-  sorry
+  intro hP hQ
+  constructor <;> assumption
+  -- · assumption
+  -- · assumption
   done
 
 /-- `∧` is symmetric -/

@@ -43,7 +43,6 @@ example : ∃ x : ℝ, 3 * x + 7 ≠ 12 := by
   use 0
   norm_num
 
-example : ∃ x y : ℝ, 2 * x + 3 * y = 7 ∧ x + 2 * y = 4 :=
-  by
+example : ∃ x y : ℝ, 2 * x + 3 * y = 7 ∧ x + 2 * y = 4 := by
   use 2, 1
   norm_num
