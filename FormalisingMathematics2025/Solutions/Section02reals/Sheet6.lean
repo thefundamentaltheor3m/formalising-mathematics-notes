@@ -50,7 +50,7 @@ theorem tendsTo_pos_const_mul {a : ℕ → ℝ} {t : ℝ} (h : TendsTo a t) {c :
   specialize hX n hn
   simp
   rw [← mul_sub, abs_mul, abs_of_pos hc]
-  exact (lt_div_iff' hc).mp hX
+  exact (lt_div_iff₀' hc).mp hX
 
 /-- If `a(n)` tends to `t` and `c` is a negative constant then
 `c * a(n)` tends to `c * t`. -/
@@ -64,7 +64,7 @@ theorem tendsTo_neg_const_mul {a : ℕ → ℝ} {t : ℝ} (h : TendsTo a t) {c :
   specialize hX n hn
   simp
   rw [← mul_sub, abs_mul, abs_of_neg hc]
-  exact (lt_div_iff' hc').mp hX
+  exact (lt_div_iff₀' hc').mp hX
 
 /-- If `a(n)` tends to `t` and `c` is a constant then `c * a(n)` tends
 to `c * t`. -/
@@ -132,7 +132,7 @@ theorem tendsTo_mul (a b : ℕ → ℝ) (t u : ℝ) (ha : TendsTo a t) (hb : Ten
 theorem tendsTo_unique (a : ℕ → ℝ) (s t : ℝ) (hs : TendsTo a s) (ht : TendsTo a t) : s = t := by
   by_contra h
   wlog h2 : s < t
-  · cases' Ne.lt_or_lt h with h3 h3
+  · rcases Ne.lt_or_lt h with (h3 | h3)
     · contradiction
     · apply this _ _ _ ht hs _ h3
       exact ne_comm.mp h

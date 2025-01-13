@@ -12,9 +12,31 @@ namespace Section2sheet5
 
 open Section2sheet3solutions
 
+noncomputable def f : ℕ → ℝ
+| 0 => 0
+| n + 1 => Real.sqrt 3
+
+
+lemma f_zero : f 0 = 0 := by simp [f]
+lemma f_succ {n : ℕ} : f (n + 1) = Real.sqrt 3 := by simp [f]
+
 -- you can maybe do this one now
 theorem tendsTo_neg {a : ℕ → ℝ} {t : ℝ} (ha : TendsTo a t) : TendsTo (fun n ↦ -a n) (-t) := by
-  sorry
+  rw [tendsTo_def] at ha ⊢
+  intro ε hε
+  specialize ha ε hε
+  rcases ha with ⟨B, hB⟩
+
+  have h1 : 0 < ε / c := by
+    sorry
+
+  use B
+  intro n hn
+  rw [← abs_neg]
+  ring_nf
+  specialize hB n hn
+  exact hB
+  done
 
 /-
 `tendsTo_add` is the next challenge. In a few weeks' time I'll

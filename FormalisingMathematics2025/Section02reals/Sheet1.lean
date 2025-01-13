@@ -9,7 +9,7 @@ import Mathlib.Tactic -- import all the tactics
 
 # The real numbers in Lean
 
-Lean has a copy of of the real numbers. It's called `real`,
+Lean has a copy of the real numbers. It's called `real`,
 but we use the usual notation `ℝ`. Put your cursor on the `ℝ` to find
 out how to type it in VS Code.
 
@@ -30,7 +30,7 @@ New tactics you'll need to know about:
 -/
 
 example : (2 : ℝ) + 2 = 4 := by
-  sorry
+  norm_num
   done
 
 example : (2 : ℝ) + 2 ≠ 5 := by
@@ -42,7 +42,8 @@ example : (2 : ℝ) + 2 < 5 := by
   done
 
 example : ∃ x : ℝ, 3 * x + 7 = 12 := by
-  sorry
+  use (5 / 3)
+  norm_num
   done
 
 example : ∃ x : ℝ, 3 * x + 7 ≠ 12 := by

@@ -8,7 +8,7 @@ import Mathlib.Tactic -- imports all the Lean tactics
 
 /-!
 
-# Logic in Lean, example sheet 6 : "or" (∨`)
+# Logic in Lean, example sheet 6 : "or" (`∨`)
 
 We learn about how to manipulate `P ∨ Q` in Lean.
 
@@ -27,7 +27,9 @@ and also the following tactics
 variable (P Q R S : Prop)
 
 example : P → P ∨ Q := by
-  sorry
+  intro hP
+  left
+  exact hP
   done
 
 example : Q → P ∨ Q := by
@@ -35,7 +37,10 @@ example : Q → P ∨ Q := by
   done
 
 example : P ∨ Q → (P → R) → (Q → R) → R := by
-  sorry
+  intro hPoQ
+  cases hPoQ with
+  | inl h => sorry
+  | inr h => sorry
   done
 
 -- symmetry of `or`

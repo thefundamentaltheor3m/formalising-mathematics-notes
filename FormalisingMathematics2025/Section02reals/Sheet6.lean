@@ -30,7 +30,17 @@ Good luck!
 /-- If `a(n)` tends to `t` then `37 * a(n)` tends to `37 * t`-/
 theorem tendsTo_thirtyseven_mul (a : ℕ → ℝ) (t : ℝ) (h : TendsTo a t) :
     TendsTo (fun n ↦ 37 * a n) (37 * t) := by
-  sorry
+  intro ε hε
+  rw [tendsTo_def] at h
+  obtain ⟨B, hB⟩ := h (ε / 37) (by simpa)
+  use B
+  intro n hn
+  simp
+  specialize hB n hn
+
+
+
+
 
 /-- If `a(n)` tends to `t` and `c` is a positive constant then
 `c * a(n)` tends to `c * t`. -/

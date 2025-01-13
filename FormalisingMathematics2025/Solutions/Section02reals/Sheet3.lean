@@ -27,7 +27,7 @@ def f : ℕ → ℝ := fun n ↦ n ^ 2 + 3
 
 Mathematicians might write `n ↦ n^2+3` for this function. You can
 read more about function types in the "three kinds of types" section
-of Part B of the course book.
+of Part 1 of the course book.
 
 Sometimes you might find yourself with a lambda-defined function
 evaluated at a number. For example, you might see something like
